@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 
+@mixin breakpoint($point) {
+  @media (max-width: $point) { @content ; }
+}
+
 * {
 	box-sizing: border-box;
 	margin: auto;
@@ -98,55 +102,53 @@ section:nth-child(2n+1) {
 }
 
 #logo{
+	float: left;
+	margin: 0 50px 0 35px;
 	font-size: 26px;
 	letter-spacing: 1px;
-	line-height: 41px;
+	line-height: 100px;
 	color: #fed136;
 	font-family: "Wisdom";
 }
 
 
 #home{
-	height: 700px;
+	//max-height: 700px;
 	color: white;
 	padding-top: 0;
-	background: none;
+	background-image: url("../images/Background Image.png");
+	background-position: center top;
+	background-size: cover;
+	background-color: rgba(0,0,0,0.5); // Tint color
+	background-blend-mode: color;
 	
-	&:before {
-		content: "";
-		position: absolute;
-		height: inherit;
+	.items {
+		max-width: 1000px;
+	}
+	
+
+	nav{
+		display: flex;
+		float: right;
+		max-width: 510px;
 		width: 100%;
-		left: 0;
-		background-image: url("../images/Background Image.png");
-		background-position: 0 -42px;
-		background-size: cover;
-		background-color: rgba(0,0,0,0.5); // Tint color
-		background-blend-mode: multiply;
-		z-index: -1;
-	}
-	
-	
-	>span{
-		display: inline-block;
-		position: absolute;
-		left: 237px;
-		top: 30px;
-	}
-	
-	>nav{
-		display: inline-block;
-		position: absolute;
-		right: 230px;
-		top: 52px;
-	}
-	
-	nav a{
-		font-size: 14px;
-		font-family: "Montserrat";
-		text-transform: uppercase;
-		+ a {
-			margin-left: 40px;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+		margin: 35px 15px 0 auto;
+		
+		@media (max-width: 700px) {
+			float: none;
+			position: absolute;
+			top: 60px;
+			max-width: unset;
+		}
+		
+		a {
+			font-size: 14px;
+			font-family: "Montserrat";
+			text-transform: uppercase;
+			line-height: 3;
+			padding: 5px 15px 5px 15px;
 		}
 	}
 	
@@ -209,6 +211,10 @@ section:nth-child(2n+1) {
 			margin-left: 50px;
 		}
 		
+		@media (max-width: 940px) {
+			margin: 0 auto 30px auto !important;
+		}
+		
 		b {
 			font-size: 18px;
 			letter-spacing: -1px;
@@ -238,7 +244,15 @@ section:nth-child(2n+1) {
 	.items {
 		display: grid;
 		grid-template-columns: auto auto auto;
-		width: 980px;
+		max-width: 980px;
+		
+		@media (max-width: 1000px) {
+			grid-template-columns: auto auto;
+		}
+		
+		@media (max-width: 620px) {
+			grid-template-columns: auto;
+		}
 	}
 	
 	.item {
@@ -331,6 +345,7 @@ section:nth-child(2n+1) {
 				position: absolute;
 				top: -5px;
 				line-height: 25px;
+
 			}
 		}
 		
@@ -343,7 +358,22 @@ section:nth-child(2n+1) {
 			left: 215px;
 			text-align: left;
 		}
+
+		@media (max-width: 900px) {
+			left: calc(-50vw + 120px);
+			
+			> div > div {
+				width: calc(100vw - 305px);;
+				max-height: 305px;
+				text-align: left !important;
+				left: 215px;
+				text-align: left;
+				//position: unset;
+				//width: 80vw;
+			}
+		}
 	}
+	
 	.fakeimg{
 		color: white;
 		text-shadow: 0px 1px 3px black; 
@@ -389,7 +419,13 @@ section:nth-child(2n+1) {
 	
 		> div {
 			display: inline-block;
+			
+			@media (max-width: 800px) {
+				display: block;
+				margin: auto auto 30px auto !important
+			}
 		}
+		
 	}
 	
 	img {
@@ -417,6 +453,13 @@ section:nth-child(2n+1) {
 	a + a {
 		margin-left:20px;
 	}
+	
+	@media (max-width: 720px) {
+		a {
+			display: block;
+			margin: 20px auto !important;
+		}
+	}
 }
 
 #contact-us {
@@ -432,15 +475,20 @@ section:nth-child(2n+1) {
 	}
 	
 	form{
-		width: 945px;
-
-		
+		//max-width: 945px;
+		padding: 0 20px 0 20px;
 		div {
 			display: grid;
 			//grid-template-columns: 1fr 1fr;
 			//grid-template-rows: 80px 80px 80px;
 			grid-template-areas: "a d" "b d" "c d";
+			grid-auto-rows: 1fr;
 			grid-gap: 30px;
+			max-width: 990px;
+			
+			@media (max-width: 990px) {
+				grid-template-areas: "a" "b" "c" "d" "d";
+			}
 			
 			* {
 				font-size: 14px;
@@ -501,9 +549,22 @@ footer {
 		line-height: 40px;
 		color: #555555;
 		font-family: "Montserrat";
+		
+		@media (max-width: 1090px) {
+			left: 0;
+			right: 0;
+			top: 30px;
+		}
 	}
 }
 
 
-
 // width 1080
+// width 800
+//600px, 900px, 1200px, and 1800px
+
+
+
+
+
+
