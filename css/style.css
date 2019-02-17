@@ -324,7 +324,13 @@ section:nth-child(2n+1) {
 }
 
 #about-us .items > div {
-  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto 1fr;
+      grid-template-columns: 1fr auto 1fr;
+}
+
+#about-us .items > div > div:first-child {
   margin: 0 auto 95px auto;
   width: 180px;
   height: 180px;
@@ -332,35 +338,36 @@ section:nth-child(2n+1) {
   background-position: center;
   border: 7px solid #f1f1f1;
   border-radius: 50%;
+  -ms-grid-column: 2;
+      grid-column: 2;
 }
 
-#about-us .items > div > div {
+#about-us .items > div > div + div {
   width: 305px;
-  position: absolute;
-  top: -5px;
   line-height: 25px;
-}
-
-#about-us .items > div:nth-child(2n+1) > div {
-  right: 215px;
   text-align: right;
+  -ms-grid-column: 1;
+      grid-column: 1;
+  -ms-grid-row: 1;
+      grid-row: 1;
+  justify-self: end;
+  margin: 0 15px 15px 15px;
 }
 
-#about-us .items > div:nth-child(2n+0) > div {
-  left: 215px;
+#about-us .items > div:nth-child(2n+0) > div + div {
+  -ms-grid-column: 3;
+      grid-column: 3;
   text-align: left;
+  justify-self: start;
 }
 
-@media (max-width: 900px) {
-  #about-us .items {
-    left: calc(-50vw + 120px);
+@media (max-width: 850px) {
+  #about-us .items > div {
+    display: block;
   }
   #about-us .items > div > div {
-    width: calc(100vw - 305px);
-    max-height: 305px;
-    text-align: left !important;
-    left: 215px;
-    text-align: left;
+    margin: auto auto 50px auto !important;
+    text-align: center !important;
   }
 }
 
