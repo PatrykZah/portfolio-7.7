@@ -289,16 +289,18 @@ section:nth-child(2n+1) {
   color: black;
 }
 
-#about-us .items:before {
-  background-color: #f1f1f1;
-  width: 4px;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  display: inline-block;
-  content: "";
-  margin-left: -2px;
-  z-index: -1;
+@media (min-width: 850px) {
+  #about-us .items:before {
+    background-color: #f1f1f1;
+    width: 4px;
+    top: 0;
+    bottom: 190px;
+    position: absolute;
+    display: inline-block;
+    content: "";
+    margin-left: -2px;
+    z-index: -1;
+  }
 }
 
 #about-us .items b:first-child {

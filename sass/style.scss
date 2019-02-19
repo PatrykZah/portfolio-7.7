@@ -294,17 +294,18 @@ section:nth-child(2n+1) {
 	.items {
 		position: relative;
 		color:black;
-		
-		&:before {
-			background-color: #f1f1f1;
-			width: 4px;
-			top: 0;
-			bottom: 0;
-			position: absolute;
-			display: inline-block;
-			content: "";
-			margin-left: -2px;
-			z-index: -1;
+		@media (min-width: 850px) {
+			&:before {
+				background-color: #f1f1f1;
+				width: 4px;
+				top: 0;
+				bottom: 190px;
+				position: absolute;
+				display: inline-block;
+				content: "";
+				margin-left: -2px;
+				z-index: -1;
+			}
 		}
 		
 		b:first-child {
@@ -359,6 +360,10 @@ section:nth-child(2n+1) {
 				grid-column: 3;
 				text-align: left;
 				justify-self: start;
+			}
+			
+			&:last-child(){
+				//margin: auto;
 			}
 			
 			@media (max-width: 850px) {
