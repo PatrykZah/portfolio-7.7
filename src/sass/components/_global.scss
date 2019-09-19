@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "Wisdom";
+  src: url(../fonts/WisdomScriptAJ.ttf);
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+	box-sizing: border-box;
+	margin: auto;
+	font-size: inherit;
+	text-align: center;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 0;
+}
+
+a {
+	all: unset;
+	cursor: pointer;
+} 
+
+p {
+	a {
+		text-decoration: underline;
+	}
+}
+
+
+body > section {
+
+	//margin: auto;
+	padding-top: 112px;
+	padding-bottom: 110px;
+	
+}
+
+.container {
+	max-width: 1400px;
+}
+
+section:nth-child(2n) {
+	background-color: #f7f7f7;
+}
+
+
+.title {
+	margin-bottom: 78px;
+	b {
+		font-size: 40px;
+		letter-spacing: -1px;
+		color: #222222;
+		font-family: "Montserrat";
+		text-shadow: 1px 0,0 1px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	
+	p {
+		font-size: 18px;
+		color: #777777;
+		font-family: "Droid Serif";
+		font-style: italic;
+		text-align: center;
+		padding-top: 10px;
+	}
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+.button {	
+	display: block;
+	margin: auto;
+	margin-top: 35px;
+	width: 240px;
+	height: 65px;
+	background-color: rgb(255, 209, 54);
+	cursor: pointer;
+	border: unset;
+	border-radius: 4px;
+	
+	font-size: 18px;
+	font-family: "Montserrat";
+	font-weight: 700;
+	color: white;
+	text-transform: uppercase;
+	&:hover {
+		background-color: rgb(255, 190, 34);
+	}
+}
+
+.hidden {
+	display: none;
+}

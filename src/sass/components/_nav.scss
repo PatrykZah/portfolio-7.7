@@ -1,0 +1,125 @@
+#nav {
+	#logo{
+		float: left;
+		margin: 0 50px 0 35px;
+		font-size: 26px;
+		letter-spacing: 1px;
+		line-height: 100px;
+		color: #fed136;
+		font-family: "Wisdom";
+	}
+
+
+	.navbar-toggler {
+		all: unset;
+		display: none;
+		cursor: pointer;
+	}
+
+	label.button {
+		display: none;
+	}
+
+	#main_nav {	
+		position: absolute;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		margin: 35px 15vw 0 auto;
+		flex-wrap: wrap;
+		color: white;
+		letter-spacing: 5px;
+		font-weight: bold;
+		
+		a {
+			font-size: 14px;
+			font-family: "Montserrat";
+			text-transform: uppercase;
+			line-height: 3;
+			padding: 5px 15px 5px 15px;
+			transition: 0.5s color;
+			text-shadow: 0 0 2px black,0 0 15px white;
+			
+			&:hover{
+				color: #fed136;
+			}
+		}
+
+	}
+}
+
+
+@media (max-width: 750px) {
+	#nav {
+		position: fixed;
+		background-color: #212121;
+		padding-left: 10%;
+		right: 0;
+		left: 0;
+		z-index: 100;
+		
+		div {
+			text-align: left;
+		}
+
+		#logo {
+			margin: 0;
+			float: unset;
+			line-height: 50px;
+		}
+
+		.navbar-toggler {
+			display: block;
+			position: absolute;
+			right: 50px;
+			top: 50px;
+			background-color: #ffd136;
+			border-radius: 7px;
+			padding: 5px;
+			font-size: 15px;
+			color: white;
+			font-weight: 100;
+			font-family: Montserrat;
+			
+			.fas {
+				display: block;
+				font-size: 15px;
+				color: white;
+				margin-left: 5px;
+			}
+		}
+		
+		#navbar-toggler:checked + nav {
+			height: 230px !important;
+		}
+		
+		label.button {
+			display: block;
+			height: auto;
+			width: auto;
+			padding: 11px;
+			float: right;
+			margin: 10px;
+		}
+		
+		#main_nav {
+			display: block;
+			margin: unset;
+			position: unset;
+			overflow: hidden;
+			height: 0;
+			transition: 1s;
+			//margin-left: -20px;
+			//padding-left: 20px;
+  
+			a {
+				display: block;
+				/* padding: 5px 15px 5px 15px; */
+				padding: 5px 15px 5px 0;
+				text-align: left;
+				text-shadow: unset;
+			}
+		}
+		
+	}
+}

@@ -1,36 +1,32 @@
 {
-  "name": "learning-git-2",
+  "name": "portfolio-7.7",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "globstar npm-run-all test:*",
     "test:htm": "globstar nu-html-checker *.htm*",
-    "init-project": "npm install && npm-run-all init:*",
-    "init:dirs": "mkdirp sass css vendor images js",
-    "init:files": "touch README.md index.htm sass/style.scss js/script.js",
-    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
     "build": "npm-run-all build:* test",
-    "build:clean": "rimraf css/*",
-    "build:sass": "node-sass --output-style compact --source-map true -o css sass",
-    "build:autoprefixer": "autoprefixer-cli css/style.css",
-    "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass",
+    "build:clean": "rimraf src/css/*",
+    "build:sass": "node-sass --output-style compact --source-map true -o src/css src/sass",
+    "build:autoprefixer": "autoprefixer-cli src/css/style.css",
+    "build-dev:sass": "node-sass --output-style expanded --source-map true -o src/css src/sass",
     "watch": "npm-run-all build -p watch:*",
-    "watch:sassprefixer": "onchange sass/style.scss -- npm-run-all watch2:*",
-    "watch2:1": "node-sass --output-style expanded --source-map true -o css sass",
-    "watch2:2": "autoprefixer-cli css/style.css"
+    "watch:sassprefixer": "onchange \"src/sass/\" -- npm-run-all watch2:*",
+    "watch2:1": "node-sass --output-style expanded --source-map true -o src/css src/sass",
+    "watch2:2": "autoprefixer-cli src/css/style.css"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/klapek11970/learning-git-2.git"
+    "url": "git+https://patrykzah.github.io/portfolio-7.7.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/klapek11970/learning-git-2/issues"
+    "url": "https://patrykzah.github.io/portfolio-7.7/issues"
   },
-  "homepage": "https://github.com/klapek11970/learning-git-2#readme",
+  "homepage": "https://patrykzah.github.io/portfolio-7.7#readme",
   "devDependencies": {
     "autoprefixer-cli": "^1.0.0",
     "browser-sync": "^2.26.3",

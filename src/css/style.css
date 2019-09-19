@@ -7,8 +7,13 @@
 * {
   box-sizing: border-box;
   margin: auto;
-  font-size: 0;
+  font-size: inherit;
   text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 0;
 }
 
 a {
@@ -16,16 +21,20 @@ a {
   cursor: pointer;
 }
 
-section {
+p a {
+  text-decoration: underline;
+}
+
+body > section {
   padding-top: 112px;
   padding-bottom: 110px;
 }
 
-section > * {
+.container {
   max-width: 1400px;
 }
 
-section:nth-child(2n+1) {
+section:nth-child(2n) {
   background-color: #f7f7f7;
 }
 
@@ -50,6 +59,40 @@ section:nth-child(2n+1) {
   font-style: italic;
   text-align: center;
   padding-top: 10px;
+}
+
+.flex {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly;
+}
+
+.button {
+  display: block;
+  margin: auto;
+  margin-top: 35px;
+  width: 240px;
+  height: 65px;
+  background-color: #ffd136;
+  cursor: pointer;
+  border: unset;
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #ffbe22;
+}
+
+.hidden {
+  display: none;
 }
 
 .fab {
@@ -91,7 +134,7 @@ section:nth-child(2n+1) {
   background-color: #d95232;
 }
 
-#logo {
+#nav #logo {
   float: left;
   margin: 0 50px 0 35px;
   font-size: 26px;
@@ -101,63 +144,129 @@ section:nth-child(2n+1) {
   font-family: "Wisdom";
 }
 
-#home {
-  color: white;
-  padding-top: 0;
-  background-image: url("../images/Background Image.png");
-  background-position: center top;
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-blend-mode: color;
+#nav .navbar-toggler {
+  all: unset;
+  display: none;
+  cursor: pointer;
 }
 
-#home .items {
-  max-width: 1000px;
+#nav label.button {
+  display: none;
 }
 
-#home nav {
+#nav #main_nav {
+  position: absolute;
+  right: 0;
   display: -ms-flexbox;
   display: flex;
-  float: right;
-  max-width: 510px;
-  width: 100%;
-  -ms-flex-pack: space-evenly;
-      justify-content: space-evenly;
+  -ms-flex-pack: center;
+      justify-content: center;
+  margin: 35px 15vw 0 auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 35px 15px 0 auto;
+  color: white;
+  letter-spacing: 5px;
+  font-weight: bold;
 }
 
-@media (max-width: 700px) {
-  #home nav {
-    float: none;
-    position: absolute;
-    top: 60px;
-    max-width: unset;
-  }
-}
-
-#home nav a {
+#nav #main_nav a {
   font-size: 14px;
   font-family: "Montserrat";
   text-transform: uppercase;
   line-height: 3;
   padding: 5px 15px 5px 15px;
+  transition: 0.5s color;
+  text-shadow: 0 0 2px black,0 0 15px white;
 }
 
-#home div {
-  display: block;
+#nav #main_nav a:hover {
+  color: #fed136;
 }
 
-#home div p {
+@media (max-width: 750px) {
+  #nav {
+    position: fixed;
+    background-color: #212121;
+    padding-left: 10%;
+    right: 0;
+    left: 0;
+    z-index: 100;
+  }
+  #nav div {
+    text-align: left;
+  }
+  #nav #logo {
+    margin: 0;
+    float: unset;
+    line-height: 50px;
+  }
+  #nav .navbar-toggler {
+    display: block;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    background-color: #ffd136;
+    border-radius: 7px;
+    padding: 5px;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    font-family: Montserrat;
+  }
+  #nav .navbar-toggler .fas {
+    display: block;
+    font-size: 15px;
+    color: white;
+    margin-left: 5px;
+  }
+  #nav #navbar-toggler:checked + nav {
+    height: 230px !important;
+  }
+  #nav label.button {
+    display: block;
+    height: auto;
+    width: auto;
+    padding: 11px;
+    float: right;
+    margin: 10px;
+  }
+  #nav #main_nav {
+    display: block;
+    margin: unset;
+    position: unset;
+    overflow: hidden;
+    height: 0;
+    transition: 1s;
+  }
+  #nav #main_nav a {
+    display: block;
+    /* padding: 5px 15px 5px 15px; */
+    padding: 5px 15px 5px 0;
+    text-align: left;
+    text-shadow: unset;
+  }
+}
+
+#home {
+  height: calc(100vh + 50px);
+  min-height: 700px;
+  max-height: 1375px;
+  color: white;
+  padding-top: 20vw;
+  background: url("../images/Background Image.png"), linear-gradient(180deg, rgba(0, 0, 0, 0.54) calc(100% - 50px), #f9f9f9 100%);
+  background-position: center top;
+  background-size: cover;
+  background-blend-mode: color;
+}
+
+#home p {
   font-size: 40px;
   letter-spacing: 2px;
   font-family: "Droid Serif";
   font-style: italic;
-  padding-top: 270px;
 }
 
-#home div b {
+#home b {
   font-size: 75px;
   letter-spacing: -2px;
   font-family: "Montserrat";
@@ -166,51 +275,56 @@ section:nth-child(2n+1) {
   line-height: 144px;
 }
 
-#home div button {
-  display: block;
-  margin: auto;
-  margin-top: 15px;
-  width: 240px;
-  height: 65px;
-  background-color: #fed136;
-  border: unset;
-  border-radius: 4px;
-  font-size: 18px;
-  font-family: "Montserrat";
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
+#services .items {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 #services .item {
-  display: inline-block;
-  width: 280px;
+  position: relative;
+  margin: 0 2%;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  margin-bottom: 50px;
+  min-width: 250px;
+  max-width: 250px;
 }
 
-#services .item div {
-  width: 70px;
-  height: 70px;
-  padding: 12px;
+#services .item:before {
+  padding: 30px;
   border: 3px solid #fed136;
   border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
+  transition: 0.5s;
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -3px);
 }
 
-#services .item + .item {
-  margin-left: 50px;
+#services .item img {
+  display: block;
+  height: 60px;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  margin-bottom: 25px;
 }
 
-@media (max-width: 940px) {
-  #services .item {
-    margin: 0 auto 30px auto !important;
-  }
+#services .item:hover:before {
+  background-color: #fed136;
+}
+
+#services .item:hover img {
+  filter: brightness(0%) invert(100%);
 }
 
 #services .item b {
   font-size: 18px;
   letter-spacing: -1px;
-  line-height: 68px;
   color: #222222;
   font-family: "Montserrat";
 }
@@ -221,7 +335,7 @@ section:nth-child(2n+1) {
   color: #777777;
   font-family: "Roboto Slab";
   line-height: 22px;
-  margin-top: -15px;
+  margin-top: 15px;
 }
 
 #portfolio {
@@ -254,6 +368,11 @@ section:nth-child(2n+1) {
   background-color: white;
   width: 300px;
   margin-bottom: 50px;
+  transition: 1s;
+}
+
+#portfolio .item:hover {
+  transform: scale(1.15);
 }
 
 #portfolio .item div {
@@ -287,11 +406,12 @@ section:nth-child(2n+1) {
 #about-us .items {
   position: relative;
   color: black;
+  z-index: 1;
 }
 
 @media (min-width: 850px) {
   #about-us .items:before {
-    background-color: #f1f1f1;
+    background-color: #ddd;
     width: 4px;
     top: 0;
     bottom: 190px;
@@ -325,6 +445,10 @@ section:nth-child(2n+1) {
   text-align: inherit;
 }
 
+#about-us .items > div:hover > div:first-child {
+  transform: scale(1.1);
+}
+
 #about-us .items > div {
   display: -ms-grid;
   display: grid;
@@ -338,10 +462,11 @@ section:nth-child(2n+1) {
   height: 180px;
   background-repeat: no-repeat;
   background-position: center;
-  border: 7px solid #f1f1f1;
+  border: 7px solid #ddd;
   border-radius: 50%;
   -ms-grid-column: 2;
       grid-column: 2;
+  transition: 1s transform;
 }
 
 #about-us .items > div > div + div {
@@ -411,18 +536,9 @@ section:nth-child(2n+1) {
   margin-bottom: 20px;
 }
 
-#our-amazing-team .items div + div {
-  margin-left: 45px;
-}
-
-#our-amazing-team .items > div {
-  display: inline-block;
-}
-
 @media (max-width: 800px) {
   #our-amazing-team .items > div {
-    display: block;
-    margin: auto auto 30px auto !important;
+    margin-top: 40px;
   }
 }
 
@@ -431,6 +547,12 @@ section:nth-child(2n+1) {
   height: 235px;
   border: 7px solid #ffffff;
   border-radius: 50%;
+  transition: 0.5s border,1s transform;
+}
+
+#our-amazing-team img:hover {
+  border-color: #f4f25c;
+  transform: scale(1.1);
 }
 
 #our-amazing-team .text {
@@ -442,23 +564,26 @@ section:nth-child(2n+1) {
   line-height: 25px;
 }
 
-#logos {
-  padding-top: 50px;
-  padding-bottom: 50px;
+#logos img {
+  filter: none;
+  transition: 0.5s;
 }
 
-#logos a + a {
-  margin-left: 20px;
+#logos a {
+  padding-top: 5px;
+  margin: 5px;
 }
 
-@media (max-width: 720px) {
-  #logos a {
-    display: block;
-    margin: 20px auto !important;
-  }
+#logos a:hover img {
+  filter: brightness(130%) drop-shadow(0 0 5px black) sepia(100%) saturate(278%);
+  transform: skewY(-5deg);
 }
 
-#contact-us {
+#logos a:nth-child(2n):hover img {
+  transform: skewY(5deg);
+}
+
+#contact {
   background-image: url("../images/Map Image.png");
   background-position: 600px 195px;
   background-size: 100%;
@@ -467,15 +592,15 @@ section:nth-child(2n+1) {
   margin-top: 10px;
 }
 
-#contact-us .title b {
+#contact .title b {
   color: white;
 }
 
-#contact-us form {
+#contact form {
   padding: 0 20px 0 20px;
 }
 
-#contact-us form div {
+#contact form div {
   display: -ms-grid;
   display: grid;
   grid-template-areas: "a d" "b d" "c d";
@@ -485,12 +610,12 @@ section:nth-child(2n+1) {
 }
 
 @media (max-width: 990px) {
-  #contact-us form div {
+  #contact form div {
     grid-template-areas: "a" "b" "c" "d" "d";
   }
 }
 
-#contact-us form div * {
+#contact form div * {
   font-size: 14px;
   color: black;
   font-family: "Montserrat";
@@ -500,37 +625,21 @@ section:nth-child(2n+1) {
   border-radius: 5px;
 }
 
-#contact-us form div *:-ms-input-placeholder {
+#contact form div *:-ms-input-placeholder {
   font-size: 15px;
   font-weight: bold;
   color: #aaa;
 }
 
-#contact-us form div *::placeholder {
+#contact form div *::placeholder {
   font-size: 15px;
   font-weight: bold;
   color: #aaa;
 }
 
-#contact-us form div *:last-child {
+#contact form div *:last-child {
   grid-area: d;
   padding-top: 15px;
-}
-
-#contact-us .button {
-  display: block;
-  margin: auto;
-  margin-top: 35px;
-  width: 240px;
-  height: 65px;
-  background-color: #fed136;
-  border: unset;
-  border-radius: 4px;
-  font-size: 18px;
-  font-family: "Montserrat";
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
 }
 
 footer {

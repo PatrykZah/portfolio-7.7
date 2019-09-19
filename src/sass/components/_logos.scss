@@ -1,0 +1,22 @@
+#logos {
+
+	img {
+		filter: none;
+		transition: 0.5s;
+	}
+	
+	a {
+		padding-top: 5px;
+		margin: 5px;
+	
+		&:hover img {	
+			filter: brightness(130%) drop-shadow(0 0 5px black) sepia(100%) saturate(278%);
+			transform: skewY(-5deg);
+		}
+
+		&:nth-child(2n):hover img {	
+			transform: skewY(5deg)
+		}
+	}
+
+}
